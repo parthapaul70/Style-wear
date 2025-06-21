@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>স্টাইলওয়্যার - কাপড়ের দোকান</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav {
+      background-color: #222;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1602810313325-df550cebd9b3?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tab {
+      background: #222;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 5px 5px 0 0;
+      font-weight: bold;
+    }
+    .tab.active {
+      background: #333;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .product img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contact input, .contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact button, .product button {
+      padding: 10px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    /* Modal styles */
+    #bkashModal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; top: 0; 
+      width: 100%; height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.7);
+    }
+    #bkashModalContent {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+    #bkashModalContent img {
+      max-width: 80%;
+      margin-bottom: 15px;
+    }
+    #bkashModalContent button.close {
+      position: absolute;
+      top: 10px; right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>স্টাইলওয়্যার</h1>
+    <p>আপনার ফ্যাশন, আপনার স্টাইল</p>
+  </header>
+  <nav>
+    <a href="#products">পণ্যসমূহ</a>
+    <a href="#about">আমাদের সম্পর্কে</a>
+    <a href="#contact">যোগাযোগ</a>
+  </nav>
+  <div class="hero">
+    স্টাইলওয়্যারে স্বাগতম
+  </div>
+
+  <section class="section" id="products">
+    <h2>আমাদের পণ্যসমূহ</h2>
+    <div class="tabs">
+      <div class="tab active" data-category="men">পুরুষদের পোশাক</div>
+      <div class="tab" data-category="women">নারীদের পোশাক</div>
+      <div class="tab" data-category="kids">শিশুদের পোশাক</div>
+    </div>
+    <div class="products" id="products-container">
+      <!-- Products will show here -->
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>আমাদের সম্পর্কে</h2>
+    <p>স্টাইলওয়্যার ফ্যাশনের নতুন ঠিকানা। উচ্চমানের পোশাকের মাধ্যমে আমরা আপনাকে আত্মবিশ্বাসের সাথে আপনার স্টাইল প্রকাশে সাহায্য করি।</p>
+    <p><strong>স্বত্বাধিকারী:</strong> পার্থ চন্দ্র পাল</p>
+    <p><strong>ইমেইল:</strong> parthacpaul95@gmail.com</p>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2>যোগাযোগ করুন</h2>
+    <form>
+      <input type="text" placeholder="পার্থ চন্দ্র পাল" required>
+      <input type="email" placeholder="parthacpaul95@gmail.com" required>
+      <textarea placeholder="আপনার বার্তা" rows="5" required></textarea>
+      <button type="submit">বার্তা পাঠান</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; ২০২৫ স্টাইলওয়্যার। সর্বস্বত্ব সংরক্ষিত। যোগাযোগ: parthacpaul95@gmail.com
+  </footer>
+
+  <!-- bKash Payment Modal -->
+  <div id="bkashModal">
+    <div id="bkashModalContent">
+      <button class="close" onclick="closeModal()">&times;</button>
+      <h2>বিকাশে পেমেন্ট করুন</h2>
+      <img src="https://i.ibb.co/7vYyyfP/bkash-qr-sample.png" alt="bKash QR Code" />
+      <p>আপনার বিকাশ অ্যাপ ব্যবহার করে QR কোড স্ক্যান করে পেমেন্ট করুন।</p>
+      <p>পেমেন্ট করার পর আমাদের সাথে যোগাযোগ করুন। ধন্যবাদ!</p>
+    </div>
+  </div>
+
+  <script>
+    const products = {
+      men: [
+        {
+          img: "https://via.placeholder.com/300x200?text=ক্লাসিক+টি-শার্ট",
+          name: "ক্লাসিক টি-শার্ট",
+          desc: "নিত্যদিনের পরার জন্য আরামদায়ক ও স্টাইলিশ।"
+        },
+        {
+          img: "https://via.placeholder.com/300x200?text=ডেনিম+জ্যাকেট",
+          name: "ডেনিম জ্যাকেট",
+          desc: "নৈমিত্তিক লুকের জন্য উপযুক্ত।"
+        },
+        {
+          img: "https://via.placeholder.com/300x200?text=ফর্মাল+শার্ট",
+          name: "ফর্মাল শার্ট",
+          desc: "অফিস বা মিটিংয়ের জন্য মানানসই।"
+        },
+        {
+          img: "https://via.placeholder.com/300x200?text=চিনো+প্যান্ট",
+          name: "চিনো প্যান্ট",
+          desc: "ক্যাজুয়াল বা ফর্মাল উভয় লুকেই সুন্দর।"
+        }
+      ],
+      women: [
+        {
+          img: "https://via.placeholder.com/300x200?text=সামার+ড্রেস",
+          name: "সামার ড্রেস",
+          desc: "গরমের দিনে পরার জন্য হালকা ও আরামদায়ক।"
+        },
+        {
+          img: "https://via.placeholder.com/300x200?text=সুতির+সালোয়ার+কামিজ",
+          name: "সুতির সালোয়ার কামিজ",
+          desc: "পরিবার ও অফিস উভয়ের জন্য উপযুক্ত।"
+        },
+        {
+          img: "https://via.placeholder.com/300x200?text=ওড়না",
+          name: "ওড়না",
+          desc: "স্টাইলিশ ও আরামদায়ক।"
+        }
+      ],
+      kids: [
+        {
+          img: "https://via.placeholder.com/300x200?text=শিশু+টি-শার্ট",
+          name: "শিশু টি-শার্ট",
+          desc: "হালকা ও আরামদায়ক।"
+        },
+        {
+          img: "https://via.placeholder.com/300x200?text=শিশু+জিন্স",
+          name: "শিশু জিন্স",
+          desc: "দৈনন্দিন ব্যবহারের জন্য টেকসই।"
+        },
+        {
+          img: "https://via.placeholder.com/300x200?text=শিশু+হুডি",
+          name: "শিশু হুডি",
+          desc: "ঠাণ্ডা দিনের জন্য আদর্শ।"
+        }
+      ]
+    };
+
+    const tabs = document.querySelectorAll('.tab');
+    const productsContainer = document.getElementById('products-container');
+
+    function showProducts(category) {
+      productsContainer.innerHTML = '';
+      products[category].forEach(product => {
+        const prodDiv = document.createElement('div');
+        prodDiv.className = 'product';
+        prodDiv.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>${product.desc}</p>
+          <button onclick="openModal()">বিকাশে কিনুন</button>
+        `;
+        productsContainer.appendChild(prodDiv);
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        showProducts(tab.dataset.category);
+      });
+    });
+
+    // Show men category by default on page load
+    showProducts('men');
+
+    function openModal() {
+      document.getElementById('bkashModal').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('bkashModal').style.display = 'none';
+    }
+
+    // Close modal if clicking outside the content area
+    window.onclick = function(event) {
+      const modal = document.getElementById('bkashModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
